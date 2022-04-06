@@ -1,5 +1,5 @@
-import { Text } from "react-native"
+import { Text } from "react-native";
 
 export const ExampleComponent = () => {
-  return <Text>Eu sou um componente!</Text>
-}
+  return <Text>Eu sou um componente!</Text>;
+};
