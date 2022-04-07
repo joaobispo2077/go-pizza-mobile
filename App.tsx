@@ -4,8 +4,10 @@ import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
 
 import { ExampleComponent } from '@components/example';
+import { theme } from '@src/styles/themes';
 
 export default function App() {
   const [isFontsLoaded] = useFonts([
@@ -18,10 +20,12 @@ export default function App() {
   }
 
   return (
-    <View>
-      <Text>Go pizza app!</Text>
-      <ExampleComponent />
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <View>
+        <Text>Go pizza app!</Text>
+        <ExampleComponent />
+        <StatusBar style="auto" />
+      </View>
+    </ThemeProvider>
   );
 }
