@@ -1,24 +1,27 @@
+import { DMSans_400Regular, useFonts } from '@expo-google-fonts/dm-sans';
+import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
+import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { ExampleComponent } from '@components/example';
 
 export default function App() {
+  const [isFontsLoaded] = useFonts([
+    DMSans_400Regular,
+    DMSerifDisplay_400Regular,
+  ]);
+
+  if (!isFontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Go pizza app!</Text>
       <ExampleComponent />
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
